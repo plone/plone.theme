@@ -1,0 +1,9 @@
+Changelog for plone.theme
+
+    (name of developer listed in brackets)
+
+plone.theme - 1.0b1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
