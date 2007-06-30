@@ -2,8 +2,8 @@
 # and register it with a name corresponding to a skin in portal_skins.
 # See tests.zcml and README.txt for more.
 
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from plone.theme.interfaces import IDefaultPloneLayer
 
-class IMyTheme(IDefaultBrowserLayer):
+class IMyTheme(IDefaultPloneLayer):
     """Marker interface used in the tests
     """
