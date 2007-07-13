@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.0b1'
+version = '1.0rc1'
 
 setup(name='plone.theme',
       version=version,
@@ -12,6 +12,7 @@ setup(name='plone.theme',
       classifiers=[
         "Framework :: Zope2",
         "Framework :: Zope3",
+        "Framework :: Plone",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
