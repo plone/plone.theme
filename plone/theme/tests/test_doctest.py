@@ -23,6 +23,11 @@ class PloneThemeLayer(PloneSite):
         zcml.load_config('tests.zcml', plone.theme.tests)
         fiveconfigure.debug_mode = False
 
+    @classmethod
+    def tearDown(cls):
+        pass
+    
+
 class PloneThemeTestCase(ptc.FunctionalTestCase):
     layer = PloneThemeLayer
 
