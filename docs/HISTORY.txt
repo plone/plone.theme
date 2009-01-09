@@ -2,8 +2,13 @@ Changelog for plone.theme
 
     (name of developer listed in brackets)
 
+plone.theme - 1.1
+
+- Specify package dependencies.
+  [hannosch]
+
 plone.theme - 1.0  August 15, 2007
 
-    - First stable release
-      [wichert]
+- First stable release
+  [wichert]
 
