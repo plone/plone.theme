@@ -4,6 +4,9 @@ Changelog for plone.theme
 
 plone.theme - 1.1
 
+- Declare test dependencies in an extra.
+  [hannosch]
+
 - Specify package dependencies.
   [hannosch]
 
