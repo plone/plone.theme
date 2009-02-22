@@ -4,6 +4,10 @@ Changelog for plone.theme
 
 plone.theme - 2.0
 
+- Avoid inheriting from the CMFDefault browser layer and rather define our
+  own. We don't have anything in common with the CMFDefault layer.
+  [hannosch]
+
 - Declare test dependencies in an extra.
   [hannosch]
 

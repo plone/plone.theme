@@ -32,7 +32,6 @@ setup(name='plone.theme',
           'zope.interface',
           'zope.publisher',
           'zope.app.publication',
-          'Products.CMFDefault',
           # 'Zope2',
       ],
       )
