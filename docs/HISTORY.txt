@@ -14,8 +14,12 @@ plone.theme - 2.0
 - Specify package dependencies.
   [hannosch]
 
+plone.theme - 1.1
+
+    - Make sure the theme layer takes precedence over other browser layers.
+      [davisagli]
+
 plone.theme - 1.0  August 15, 2007
 
 - First stable release
   [wichert]
-
