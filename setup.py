@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '2.0'
+version = '2.0a1'
 
 setup(name='plone.theme',
       version=version,
@@ -33,6 +33,6 @@ setup(name='plone.theme',
           'zope.publisher',
           'zope.app.publication',
           'Products.CMFCore',
-          # 'Zope2',
+          'Zope2',
       ],
       )
