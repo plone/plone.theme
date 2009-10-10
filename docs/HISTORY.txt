@@ -2,6 +2,14 @@ Changelog for plone.theme
 
     (name of developer listed in brackets)
 
+plone.theme - 1.2 (unreleased)
+
+    - Fix an error introduced by my previous adjustment. If a skin layer
+      extending the default layer was used (which is typical), then the
+      default layer would end up with higher precedence than browser
+      layers not extending the default layer.
+      [davisagli]
+
 plone.theme - 1.1  April 4, 2009
 
     - Make sure the theme layer takes precedence over other browser layers.
