@@ -4,6 +4,10 @@ Changelog
 2.0a2 - unreleased
 ------------------
 
+- Inherit from the CMFDefault layer again, for compatibility with products
+  that depend only on CMF but are also usable within Plone, and register
+  views to the CMFDefault layer.
+  [davisagli]
 
 2.0a1 - 2009-04-05
 ------------------

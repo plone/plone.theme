@@ -1,5 +1,5 @@
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from Products.CMFDefault.interfaces import ICMFDefaultSkin
 
-class IDefaultPloneLayer(IDefaultBrowserLayer):
+class IDefaultPloneLayer(ICMFDefaultSkin):
     """A Zope 3 browser layer corresponding to Plone defaults
     """
