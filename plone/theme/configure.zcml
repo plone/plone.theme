@@ -3,7 +3,7 @@
     xmlns:five="http://namespaces.zope.org/five">
 
     <subscriber
-        for="Products.CMFPlone.interfaces.ISiteRoot
+        for="Products.CMFCore.interfaces.ISiteRoot
              zope.app.publication.interfaces.IBeforeTraverseEvent"
         handler=".layer.mark_layer"
         />
