@@ -2,6 +2,7 @@ from zope.interface import directlyProvides, directlyProvidedBy
 from zope.component import queryUtility
 
 from zope.publisher.interfaces.browser import IBrowserSkinType
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 from Products.CMFCore.utils import getToolByName
 
@@ -15,5 +16,6 @@ def mark_layer(site, event):
         skin = queryUtility(IBrowserSkinType, name=skin_name)
         if skin is not None:
             ifaces = [skin,] + [l for l in directlyProvidedBy(event.request)
-                if not IBrowserSkinType.providedBy(l)]
+                if not IBrowserSkinType.providedBy(l)
+                or l is IDefaultBrowserLayer]
             directlyProvides(event.request, *ifaces)
