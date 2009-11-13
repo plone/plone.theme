@@ -5,8 +5,9 @@ version = '2.0a2'
 setup(name='plone.theme',
       version=version,
       description="Tools for managing themes in CMF and Plone sites",
-      long_description="""\
-""",
+      long_description="",
+      long_description=open("README.txt").read() + "\n" + \
+                       open("CHANGES.txt").read(),
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",

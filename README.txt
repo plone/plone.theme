@@ -1,7 +1,4 @@
-plone.theme Package Readme
-=========================
-
 Overview
---------
+========
 
-Tools for managing themes in CMF and Plone sites
+Tools for managing themes in CMF and Plone sites.
