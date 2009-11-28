@@ -1,7 +1,3 @@
-=============
- plone.theme
-=============
-
 This package lets you mark the request with a "layer" interface conditional
 on the currently selected skin (theme) in the portal_skins tool.
 
