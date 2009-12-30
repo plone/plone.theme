@@ -44,7 +44,7 @@ How it works
 
 Behind the scenes, the <interface /> registration marks IMyTheme with the
 "IInterface" IThemelayer, and registers IMyTheme as a utility named "My Theme"
-and providing IMyTheme.
+and providing IBrowserSkinType.
 
 We do something to this effect in tests/tests.zcml.
 

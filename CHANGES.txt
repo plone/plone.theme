@@ -4,15 +4,14 @@ Changelog
 2.0b1 - Unreleased
 ------------------
 
-
-2.0a2 - 2009-11-13
-------------------
-
 - Fix an error introduced by my previous adjustment. If a skin layer
   extending the default layer was used (which is typical), then the
   default layer would end up with higher precedence than browser
   layers not extending the default layer.
   [davisagli]
+
+2.0a2 - 2009-11-13
+------------------
 
 - Inherit from the CMFDefault layer again, for compatibility with products
   that depend only on CMF but are also usable within Plone, and register
