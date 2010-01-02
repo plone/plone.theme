@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0b1 - Unreleased
+2.0b1 - 2010-01-02
 ------------------
 
 - Fix an error introduced by my previous adjustment. If a skin layer
