@@ -18,6 +18,10 @@ def mark_layer(site, event):
     """Mark the request with a layer corresponding to the current skin,
     as set in the portal_skins tool.
     """
+    if getattr(event.request, "_plonetheme_", False):
+        return
+    event.request._plonetheme_=True
+
     portal_skins = getToolByName(site, 'portal_skins', None)
     if portal_skins is not None:
         skin_name = site.getCurrentSkinName()
