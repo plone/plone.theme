@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0b2 - unreleased
+2.0b2 - 2010-03-05
 ------------------
 
 - Protect against running multiple times. This can happen when using ++skin++
