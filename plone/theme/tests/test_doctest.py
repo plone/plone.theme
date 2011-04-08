@@ -15,7 +15,9 @@ import plone.theme.tests
 
 ptc.setupPloneSite()
 
+
 class PloneThemeLayer(PloneSite):
+
     @classmethod
     def setUp(cls):
         fiveconfigure.debug_mode = True
@@ -26,10 +28,11 @@ class PloneThemeLayer(PloneSite):
     @classmethod
     def tearDown(cls):
         pass
-    
+
 
 class PloneThemeTestCase(ptc.FunctionalTestCase):
     layer = PloneThemeLayer
+
 
 def test_suite():
     return unittest.TestSuite([
@@ -39,7 +42,7 @@ def test_suite():
             'README.txt', package='plone.theme',
             test_class=PloneThemeTestCase,
             optionflags=doctest.REPORT_ONLY_FIRST_FAILURE | doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS),
-            
+
         ])
 
 if __name__ == '__main__':

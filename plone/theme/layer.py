@@ -14,6 +14,7 @@ default_layers = (
     IDefaultBrowserLayer,
     )
 
+
 def mark_layer(site, event):
     """Mark the request with a layer corresponding to the current skin,
     as set in the portal_skins tool.
@@ -40,5 +41,5 @@ def mark_layer(site, event):
                     continue
                 else:
                     layer_ifaces.append(layer)
-            ifaces = [skin,] + layer_ifaces + default_ifaces
+            ifaces = [skin, ] + layer_ifaces + default_ifaces
             directlyProvides(event.request, *ifaces)

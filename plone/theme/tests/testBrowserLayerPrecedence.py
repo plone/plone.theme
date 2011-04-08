@@ -14,14 +14,18 @@ from zope.app.publication.interfaces import BeforeTraverseEvent
 from Products.CMFDefault.interfaces import ICMFDefaultSkin
 from plone.theme.interfaces import IDefaultPloneLayer
 
+
 class IThemeSpecific(IDefaultPloneLayer):
     pass
+
 
 class IAdditiveLayer(Interface):
     pass
 
+
 class IAdditiveLayerExtendingDefault(IDefaultPloneLayer):
     pass
+
 
 class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
 
@@ -37,7 +41,7 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
             gsm.registerUtility(self.theme_layer,
                                 IBrowserSkinType,
                                 self._skin_name)
-    
+
     def _get_request_interfaces(self):
         request = TestRequest()
         setDefaultSkin(request)
@@ -46,7 +50,7 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
         notify(BeforeTraverseEvent(self.portal, request))
         iro = list(request.__provides__.__iro__)
         return iro
-    
+
     def testLayerPrecedence(self):
         iro = self._get_request_interfaces()
         if self.theme_layer is not None:
@@ -55,7 +59,7 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
         additive_layer_pos = iro.index(self.additive_layer)
         cmf_default_pos = iro.index(ICMFDefaultSkin)
         zope_default_pos = iro.index(IDefaultBrowserLayer)
-        
+
         # We want to have the theme layer first, followed by additive layers,
         # followed by default layers.
         if self.theme_layer is not None:
@@ -68,7 +72,7 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
         else:
             self.failUnless(additive_layer_pos < cmf_default_pos)
         self.failUnless(cmf_default_pos < zope_default_pos)
-    
+
     def beforeTearDown(self):
         gsm = getGlobalSiteManager()
         if self.theme_layer is not None:
@@ -80,18 +84,21 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
                                     IBrowserSkinType,
                                     self._skin_name)
 
+
 class TestPrecedenceWithAdditiveLayerExtendingInterface(LayerPrecedenceTestCase):
     theme_layer = IThemeSpecific
     additive_layer = IAdditiveLayer
+
 
 class TestPrecedenceWithAdditiveLayerExtendingDefault(LayerPrecedenceTestCase):
     theme_layer = IThemeSpecific
     additive_layer = IAdditiveLayerExtendingDefault
 
+
 class TestPrecedenceWithNoThemeLayer(LayerPrecedenceTestCase):
     theme_layer = None
     additive_layer = IAdditiveLayer
-    
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite
