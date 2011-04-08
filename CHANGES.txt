@@ -1,8 +1,11 @@
 Changelog
 =========
 
+
 2.0.1 - unreleased
 ------------------
+
+- Add MANIFEST.in. [WouterVH]
 
 
 2.0 - 2010-07-18
@@ -11,12 +14,14 @@ Changelog
 - Update license to GPL version 2 only.
   [hannosch]
 
+
 2.0b2 - 2010-03-05
 ------------------
 
 - Protect against running multiple times. This can happen when using ++skin++
   traversers or VirtualHostMonster.
   [wichert]
+
 
 2.0b1 - 2010-01-02
 ------------------
@@ -27,6 +32,7 @@ Changelog
   layers not extending the default layer.
   [davisagli]
 
+
 2.0a2 - 2009-11-13
 ------------------
 
@@ -34,6 +40,7 @@ Changelog
   that depend only on CMF but are also usable within Plone, and register
   views to the CMFDefault layer.
   [davisagli]
+
 
 2.0a1 - 2009-04-05
 ------------------
@@ -48,11 +55,13 @@ Changelog
 - Specify package dependencies.
   [hannosch]
 
+
 1.1 - 2009-04-04
 ----------------
 
 - Make sure the theme layer takes precedence over other browser layers.
   [davisagli]
+
 
 1.0 - 2007-08-15
 ----------------
