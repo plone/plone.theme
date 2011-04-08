@@ -1,12 +1,26 @@
+import os
 from setuptools import setup, find_packages
 
-version = '2.0.1'
+
+def read(*rnames):
+    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+
+version = '2.0.1dev'
+
+long_description = (
+    read('README.txt')
+    + '\n' +
+    read('plone', 'theme', 'README.txt')
+    + '\n' +
+    read('CHANGES.txt')
+    + '\n'
+    )
+
 
 setup(name='plone.theme',
       version=version,
       description="Tools for managing themes in CMF and Plone sites",
-      long_description=open("README.txt").read() + "\n" + \
-                       open("CHANGES.txt").read(),
+      long_description=long_description,
       classifiers=[
           "Environment :: Web Environment",
           "Framework :: Plone",

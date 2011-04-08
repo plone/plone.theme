@@ -1,6 +1,5 @@
-=============
- plone.theme
-=============
+plone.theme
+===========
 
 This package lets you mark the request with a "layer" interface conditional
 on the currently selected skin (theme) in the portal_skins tool.
@@ -27,15 +26,15 @@ First, you should create a marker interface:
     >>> class IMyTheme(Interface):
     ...     """Marker interface for skins part of 'My Theme'
     ...     """
- 
+
 Then, register this as a theme layer in ZCML:
- 
+
     <interface 
       interface=".interfaces.IMyTheme" 
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="My Theme"
       />
-      
+
 The title here must match the name of the theme/skin selection in 
 portal_skins.
 
@@ -49,7 +48,7 @@ and providing IBrowserSkinType.
 We do something to this effect in tests/tests.zcml.
 
 Let us define the "My Theme" skin selection:
- 
+
     >>> from Products.CMFCore.utils import getToolByName
     >>> portal_skins = getToolByName(self.portal, 'portal_skins')
     >>> default_skin = portal_skins.getDefaultSkin()
@@ -61,14 +60,14 @@ In tests/tests.zcml we have registered two version of a view called
 The other outputs "My Theme".
 
 Before we turn on the skin, we will get the default view.
-    
+
     >>> from Products.Five.testbrowser import Browser
     >>> browser = Browser()
 
     >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
     Default
-    
+
 However, if we turn the skin on, we should see the effects of the marker
 interface being applied.
 
@@ -77,7 +76,7 @@ interface being applied.
     >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
     My Theme
-    
+
 And if we switch back:
 
     >>> portal_skins.default_skin = 'Plone Default'
