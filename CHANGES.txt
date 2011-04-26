@@ -5,7 +5,12 @@ Changelog
 2.0.1 - unreleased
 ------------------
 
-- Add MANIFEST.in. [WouterVH]
+- Update to import BeforeTraverseEvent from zope.traversing instead of
+  zope.app.publication.
+  [davisagli]
+
+- Add MANIFEST.in.
+  [WouterVH]
 
 
 2.0 - 2010-07-18

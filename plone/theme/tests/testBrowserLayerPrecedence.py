@@ -10,7 +10,7 @@ from zope.component import getGlobalSiteManager
 from zope.publisher.interfaces.browser import IBrowserSkinType
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.publisher.browser import setDefaultSkin
-from zope.app.publication.interfaces import BeforeTraverseEvent
+from zope.traversing.interfaces import BeforeTraverseEvent
 from Products.CMFDefault.interfaces import ICMFDefaultSkin
 from plone.theme.interfaces import IDefaultPloneLayer
 
