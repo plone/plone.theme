@@ -11,7 +11,6 @@ from zope.publisher.interfaces.browser import IBrowserSkinType
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.publisher.browser import setDefaultSkin
 from zope.traversing.interfaces import BeforeTraverseEvent
-from Products.CMFDefault.interfaces import ICMFDefaultSkin
 from plone.theme.interfaces import IDefaultPloneLayer
 
 
@@ -57,7 +56,6 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
             theme_layer_pos = iro.index(self.theme_layer)
             plone_default_pos = iro.index(IDefaultPloneLayer)
         additive_layer_pos = iro.index(self.additive_layer)
-        cmf_default_pos = iro.index(ICMFDefaultSkin)
         zope_default_pos = iro.index(IDefaultBrowserLayer)
 
         # We want to have the theme layer first, followed by additive layers,
@@ -68,10 +66,7 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
             # for BBB, IDefaultPloneLayer and ICMFDefaultSkin are not present
             # unless there are theme layers which extend them.
             self.failUnless(additive_layer_pos < plone_default_pos)
-            self.failUnless(plone_default_pos < cmf_default_pos)
-        else:
-            self.failUnless(additive_layer_pos < cmf_default_pos)
-        self.failUnless(cmf_default_pos < zope_default_pos)
+        self.failUnless(additive_layer_pos < zope_default_pos)
 
     def beforeTearDown(self):
         gsm = getGlobalSiteManager()

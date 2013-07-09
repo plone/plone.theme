@@ -5,14 +5,19 @@ from zope.publisher.interfaces.browser import IBrowserSkinType
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 from Products.CMFCore.utils import getToolByName
-from Products.CMFDefault.interfaces import ICMFDefaultSkin
 from plone.theme.interfaces import IDefaultPloneLayer
 
-default_layers = (
+default_layers = [
     IDefaultPloneLayer,
-    ICMFDefaultSkin,
     IDefaultBrowserLayer,
-    )
+    ]
+
+try:
+    from Products.CMFDefault.interfaces import ICMFDefaultSkin
+except ImportError:
+    pass
+else:
+    default_layers.append(ICMFDefaultSkin)
 
 
 def mark_layer(site, event):
