@@ -62,18 +62,18 @@ class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
         # followed by default layers.
         if self.theme_layer is not None:
             self.assertEqual(theme_layer_pos, 0)
-            self.failUnless(theme_layer_pos < additive_layer_pos)
+            self.assertTrue(theme_layer_pos < additive_layer_pos)
             # for BBB, IDefaultPloneLayer and ICMFDefaultSkin are not present
             # unless there are theme layers which extend them.
-            self.failUnless(additive_layer_pos < plone_default_pos)
-        self.failUnless(additive_layer_pos < zope_default_pos)
+            self.assertTrue(additive_layer_pos < plone_default_pos)
+        self.assertTrue(additive_layer_pos < zope_default_pos)
 
     def beforeTearDown(self):
         gsm = getGlobalSiteManager()
         if self.theme_layer is not None:
             res = gsm.unregisterUtility(provided=IBrowserSkinType,
                                         name=self._skin_name)
-            self.failUnless(res)
+            self.assertTrue(res)
             if self._old_theme_layer is not None:
                 gsm.registerUtility(self._old_theme_layer,
                                     IBrowserSkinType,
