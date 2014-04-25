@@ -1,7 +1,9 @@
 # This test confirms that views assigned to theme-specific layers
 # take precedence over views assigned to other kinds of layers.
 
-from Products.CMFPlone.tests import PloneTestCase
+from plone.theme.interfaces import IDefaultPloneLayer
+from plone.theme.testing import PLONETHEME_INTEGRATION_TESTING
+
 from zope.publisher.browser import TestRequest
 
 from zope.event import notify
@@ -11,7 +13,8 @@ from zope.publisher.interfaces.browser import IBrowserSkinType
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.publisher.browser import setDefaultSkin
 from zope.traversing.interfaces import BeforeTraverseEvent
-from plone.theme.interfaces import IDefaultPloneLayer
+
+import unittest2 as unittest
 
 
 class IThemeSpecific(IDefaultPloneLayer):
@@ -26,12 +29,15 @@ class IAdditiveLayerExtendingDefault(IDefaultPloneLayer):
     pass
 
 
-class LayerPrecedenceTestCase(PloneTestCase.FunctionalTestCase):
+class LayerPrecedenceTestCase(unittest.TestCase):
+
+    layer = PLONETHEME_INTEGRATION_TESTING
 
     additive_layer = None
     theme_layer = None
 
-    def afterSetUp(self):
+    def setUp(self):
+        self.portal = self.layer['portal']
         gsm = getGlobalSiteManager()
         if self.theme_layer is not None:
             self._skin_name = self.portal.portal_skins.getDefaultSkin()
