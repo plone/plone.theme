@@ -5,8 +5,8 @@ This package lets you mark the request with a "layer" interface conditional
 on the currently selected skin (theme) in the portal_skins tool.
 
 Most Zope 3 "visual" directives, like <browser:page /> or <browser:viewlet />
-accept a 'layer' attribute, which should point to an interface. Recall that a 
-view is a multi-adapter on (context, request). Most views are registered 
+accept a 'layer' attribute, which should point to an interface. Recall that a
+view is a multi-adapter on (context, request). Most views are registered
 so that the 'request' being adapted only needs to provide Interface. This
 is equivalent to saying layer="*".
 
@@ -29,13 +29,13 @@ First, you should create a marker interface:
 
 Then, register this as a theme layer in ZCML:
 
-    <interface 
-      interface=".interfaces.IMyTheme" 
+    <interface
+      interface=".interfaces.IMyTheme"
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="My Theme"
       />
 
-The title here must match the name of the theme/skin selection in 
+The title here must match the name of the theme/skin selection in
 portal_skins.
 
 How it works
@@ -50,21 +50,25 @@ We do something to this effect in tests/tests.zcml.
 Let us define the "My Theme" skin selection:
 
     >>> from Products.CMFCore.utils import getToolByName
-    >>> portal_skins = getToolByName(self.portal, 'portal_skins')
+    >>> portal_skins = getToolByName(layer['portal'], 'portal_skins')
     >>> default_skin = portal_skins.getDefaultSkin()
     >>> skin_path = portal_skins._getSelections()[default_skin]
     >>> portal_skins.addSkinSelection('My Theme', skin_path)
 
-In tests/tests.zcml we have registered two version of a view called 
+In tests/tests.zcml we have registered two version of a view called
 @@layer-test-view. One, for the default skin layer, simply outputs "Default".
 The other outputs "My Theme".
 
 Before we turn on the skin, we will get the default view.
 
-    >>> from Products.Five.testbrowser import Browser
-    >>> browser = Browser()
+    >>> from plone.testing import z2
 
-    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    >>> from plone.testing.z2 import Browser
+    >>> from Testing.ZopeTestCase import user_password
+    >>> with z2.zopeApp() as app:
+    ...     browser = Browser(app)
+
+    >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
     Default
 
@@ -72,15 +76,18 @@ However, if we turn the skin on, we should see the effects of the marker
 interface being applied.
 
     >>> portal_skins.default_skin = 'My Theme'
+    >>> import transaction
+    >>> transaction.commit()
 
-    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
     My Theme
 
 And if we switch back:
 
     >>> portal_skins.default_skin = 'Plone Default'
+    >>> transaction.commit()
 
-    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
     Default
