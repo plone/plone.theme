@@ -4,8 +4,6 @@
 from plone.theme.interfaces import IDefaultPloneLayer
 from plone.theme.testing import PLONETHEME_INTEGRATION_TESTING
 
-from zope.publisher.browser import TestRequest
-
 from zope.event import notify
 from zope.interface import Interface, directlyProvides, directlyProvidedBy
 from zope.component import getGlobalSiteManager
@@ -48,7 +46,7 @@ class LayerPrecedenceTestCase(unittest.TestCase):
                                 self._skin_name)
 
     def _get_request_interfaces(self):
-        request = TestRequest()
+        request = self.layer['request']
         setDefaultSkin(request)
         orig_iro = list(directlyProvidedBy(request).__iro__)
         directlyProvides(request, [self.additive_layer] + orig_iro)
