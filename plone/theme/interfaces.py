@@ -1,7 +1,4 @@
-try:
-    from Products.CMFDefault.interfaces import ICMFDefaultSkin as IDefaultBrowserLayer
-except ImportError:
-    from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class IDefaultPloneLayer(IDefaultBrowserLayer):

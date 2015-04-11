@@ -12,13 +12,6 @@ default_layers = [
     IDefaultBrowserLayer,
     ]
 
-try:
-    from Products.CMFDefault.interfaces import ICMFDefaultSkin
-except ImportError:
-    pass
-else:
-    default_layers.append(ICMFDefaultSkin)
-
 
 def mark_layer(site, event):
     """Mark the request with a layer corresponding to the current skin,
