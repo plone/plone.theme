@@ -50,6 +50,9 @@ class LayerPrecedenceTestCase(unittest.TestCase):
         setDefaultSkin(request)
         orig_iro = list(directlyProvidedBy(request).__iro__)
         directlyProvides(request, [self.additive_layer] + orig_iro)
+        # Reset markers so that we can still register new skins and browserlayers
+        del request._plonebrowserlayer_
+        del request._plonetheme_
         notify(BeforeTraverseEvent(self.portal, request))
         iro = list(request.__provides__.__iro__)
         return iro
