@@ -4,7 +4,8 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove dependency on CMFDefault
+  [tomgross]
 
 2.1.3 (2015-03-27)
 ------------------
