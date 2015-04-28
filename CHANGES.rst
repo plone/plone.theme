@@ -7,6 +7,7 @@ Changelog
 - Remove dependency on CMFDefault
   [tomgross]
 
+
 2.1.3 (2015-03-27)
 ------------------
 
