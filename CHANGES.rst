@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.4 (unreleased)
+2.1.4 (2015-04-28)
 ------------------
 
 - Remove dependency on CMFDefault
