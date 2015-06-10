@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.0 (unreleased)
+3.0.0 (2015-06-10)
 ------------------
 
 - 3.x is plone 5 only
