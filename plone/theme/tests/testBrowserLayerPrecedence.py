@@ -70,7 +70,7 @@ class LayerPrecedenceTestCase(unittest.TestCase):
         if self.theme_layer is not None:
             self.assertEqual(theme_layer_pos, 0)
             self.assertTrue(theme_layer_pos < additive_layer_pos)
-            # for BBB, IDefaultPloneLayer is not present
+            # for BBB, IDefaultPloneLayer and ICMFDefaultSkin are not present
             # unless there are theme layers which extend them.
             self.assertTrue(additive_layer_pos < plone_default_pos)
         self.assertTrue(additive_layer_pos < zope_default_pos)
