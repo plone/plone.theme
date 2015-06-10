@@ -1,10 +1,11 @@
 Changelog
 =========
 
-2.1.5 (unreleased)
+3.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- 3.x is plone 5 only
+  [vangheem]
 
 
 2.1.4 (2015-04-28)
