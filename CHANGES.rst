@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.5 (unreleased)
+2.1.5 (2015-06-10)
 ------------------
 
 - restore 2.x branch as being for plone < 5. Revert 2.1.4 changes.
