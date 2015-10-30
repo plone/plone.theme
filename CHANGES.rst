@@ -4,7 +4,13 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+New:
+
+- *add item here*
+
+Fixes:
+
+- *add item here*
 
 
 3.0.0 (2015-06-10)
