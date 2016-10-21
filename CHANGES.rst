@@ -10,8 +10,8 @@ New:
 
 Fixes:
 
-- *add item here*
-
+- Remove ZopeTestCase traces.
+  [gforcada]
 
 3.0.0 (2015-06-10)
 ------------------
