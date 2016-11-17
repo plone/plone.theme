@@ -4,10 +4,6 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-New:
-
-- *add item here*
-
 Fixes:
 
 - Remove ZopeTestCase traces.
