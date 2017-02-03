@@ -14,7 +14,7 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Fixed test when using Zope 4.  [maurits]
 
 
 3.0.1 (2016-11-17)
