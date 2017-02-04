@@ -61,11 +61,8 @@ The other outputs "My Theme".
 
 Before we turn on the skin, we will get the default view.
 
-    >>> from plone.testing import z2
-
     >>> from plone.testing.z2 import Browser
-    >>> with z2.zopeApp() as app:
-    ...     browser = Browser(app)
+    >>> browser = Browser(layer['app'])
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
