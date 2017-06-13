@@ -12,7 +12,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.publisher.browser import setDefaultSkin
 from zope.traversing.interfaces import BeforeTraverseEvent
 
-import unittest2 as unittest
+import unittest
 
 
 class IThemeSpecific(IDefaultPloneLayer):
