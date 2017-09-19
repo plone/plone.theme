@@ -1,11 +1,10 @@
-from zope.interface import directlyProvides, directlyProvidedBy
+# -*- coding: utf-8 -*-
+from plone.theme.interfaces import IDefaultPloneLayer
+from Products.CMFCore.utils import getToolByName
 from zope.component import queryUtility
-
+from zope.interface import directlyProvides, directlyProvidedBy
 from zope.publisher.interfaces.browser import IBrowserSkinType
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-
-from Products.CMFCore.utils import getToolByName
-from plone.theme.interfaces import IDefaultPloneLayer
 
 default_layers = [
     IDefaultPloneLayer,
@@ -17,13 +16,15 @@ def mark_layer(site, event):
     """Mark the request with a layer corresponding to the current skin,
     as set in the portal_skins tool.
     """
-    if getattr(event.request, "_plonetheme_", False):
+    if getattr(event.request, '_plonetheme_', False):
         return
-    event.request._plonetheme_=True
+    event.request._plonetheme_ = True
 
     portal_skins = getToolByName(site, 'portal_skins', None)
     if portal_skins is not None:
         skin_name = site.getCurrentSkinName()
+        if skin_name is not None:
+            return
         skin = queryUtility(IBrowserSkinType, name=skin_name)
         if skin is not None:
             layer_ifaces = []
