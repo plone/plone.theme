@@ -23,7 +23,7 @@ def mark_layer(site, event):
     portal_skins = getToolByName(site, 'portal_skins', None)
     if portal_skins is not None:
         skin_name = site.getCurrentSkinName()
-        if skin_name is not None:
+        if skin_name is None:
             return
         skin = queryUtility(IBrowserSkinType, name=skin_name)
         if skin is not None:
