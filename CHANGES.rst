@@ -14,7 +14,8 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Minor administrativa fixes.
+  [gforcada]
 
 
 3.0.3 (2017-07-03)
