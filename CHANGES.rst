@@ -14,7 +14,8 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Handle case where we get no skinname in Zope4.
+  [pbauer]
 
 
 3.0.4 (2018-03-10)
