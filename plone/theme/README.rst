@@ -65,7 +65,8 @@ Before we turn on the skin, we will get the default view.
     >>> browser = Browser(layer['app'])
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
-    >>> print browser.contents
+    >>> from __future__ import print_function
+    >>> print(browser.contents)
     Default
 
 However, if we turn the skin on, we should see the effects of the marker
@@ -76,7 +77,7 @@ interface being applied.
     >>> transaction.commit()
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     My Theme
 
 And if we switch back:
@@ -85,5 +86,5 @@ And if we switch back:
     >>> transaction.commit()
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     Default
