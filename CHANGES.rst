@@ -14,7 +14,7 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Tests run on Python 3 [ale-rt]
 
 
 3.0.5 (2018-04-04)
