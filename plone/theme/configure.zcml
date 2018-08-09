@@ -1,11 +1,5 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five">
+<configure xmlns="http://namespaces.zope.org/zope">
 
-    <subscriber
-        for="Products.CMFCore.interfaces.ISiteRoot
-             zope.traversing.interfaces.IBeforeTraverseEvent"
-        handler=".layer.mark_layer"
-        />
+    <include package="Products.CMFPlone" />
 
 </configure>

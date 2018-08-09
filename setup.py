@@ -5,7 +5,8 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '3.0.7.dev0'
+
+version = '4.0.0.dev0'
 
 long_description = (
     read('README.rst')
@@ -14,29 +15,28 @@ long_description = (
     + '\n' +
     read('CHANGES.rst')
     + '\n'
-    )
+)
 
 
 setup(name='plone.theme',
       version=version,
-      description="Tools for managing themes in CMF and Plone sites",
+      description="Tools for managing themes Plone (backward compatibility) ",
       long_description=long_description,
       classifiers=[
           "Environment :: Web Environment",
           "Framework :: Plone",
-          "Framework :: Plone :: 5.0",
-          "Framework :: Plone :: 5.1",
           "Framework :: Plone :: 5.2",
           "Framework :: Zope2",
           "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
           "Operating System :: OS Independent",
           "Programming Language :: Python",
           "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3.6",
       ],
       keywords='plone theme manage',
       author='Plone Foundation',
       author_email='plone-developers@lists.sourceforge.net',
-      url='https://pypi.python.org/pypi/plone.theme',
+      url='https://pypi.org/project/plone.theme',
       license='GPL version 2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['plone'],
@@ -49,11 +49,7 @@ setup(name='plone.theme',
       ),
       install_requires=[
           'setuptools',
-          'zope.component',
-          'zope.interface',
-          'zope.publisher',
-          'zope.traversing',
-          'Products.CMFCore',
-          'Zope2',
+          'Products.CMFPlone>=5.1.9999',
+          'zope.deferredimport',
       ],
       )

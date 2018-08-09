@@ -1,6 +1,9 @@
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+# -*- coding: utf-8 -*-
+import zope.deferredimport
 
 
-class IDefaultPloneLayer(IDefaultBrowserLayer):
-    """A Zope 3 browser layer corresponding to Plone defaults
-    """
+zope.deferredimport.initialize()
+zope.deferredimport.deprecated(
+    "Import from Products.CMFPlone.interfaces.theme instead",
+    IDefaultPloneLayer='Products.CMFPlone.interfaces:theme.IDefaultPloneLayer',
+)

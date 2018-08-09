@@ -1,12 +1,14 @@
 Changelog
 =========
 
-3.0.7 (unreleased)
+4.0.0 (unreleased)
 ------------------
 
 Breaking changes:
 
-- *add item here*
+- Features and tests were moved to ``Products.CMFPlone.theme``, ``Products.CMFPlone.interfaces.theme`` and tests.
+  This is a backward compatibility package only.
+  [jensens]
 
 New features:
 
