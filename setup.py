@@ -22,6 +22,7 @@ setup(name='plone.theme',
       description="Tools for managing themes in CMF and Plone sites",
       long_description=long_description,
       classifiers=[
+          "Development Status :: 5 - Production/Stable",
           "Environment :: Web Environment",
           "Framework :: Plone",
           "Framework :: Plone :: 5.0",
