@@ -53,15 +53,12 @@ setup(
     extras_require=dict(
         test=[
             "plone.app.testing",
+            "plone.testing",
         ]
     ),
     install_requires=[
         "setuptools",
-        "zope.component",
-        "zope.interface",
-        "zope.publisher",
-        "zope.traversing",
         "Products.CMFCore",
-        "Zope2",
+        "Zope",
     ],
 )
