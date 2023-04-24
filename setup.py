@@ -49,6 +49,7 @@ setup(
     namespace_packages=["plone"],
     include_package_data=True,
     zip_safe=False,
+    python_requires=">=3.8",
     extras_require=dict(
         test=[
             "plone.app.testing",
