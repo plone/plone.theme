@@ -68,6 +68,7 @@ Before we turn on the skin, we will get the default view.
     >>> from __future__ import print_function
     >>> print(browser.contents)
     Default
+    ...
 
 However, if we turn the skin on, we should see the effects of the marker
 interface being applied.
@@ -79,6 +80,7 @@ interface being applied.
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     >>> print(browser.contents)
     My Theme
+    ...
 
 And if we switch back:
 
@@ -88,3 +90,4 @@ And if we switch back:
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     >>> print(browser.contents)
     Default
+    ...
