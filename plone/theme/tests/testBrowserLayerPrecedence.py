@@ -29,25 +29,23 @@ class IAdditiveLayerExtendingDefault(IDefaultPloneLayer):
 
 
 class LayerPrecedenceTestCase(unittest.TestCase):
-
     layer = PLONETHEME_INTEGRATION_TESTING
 
     additive_layer = None
     theme_layer = None
 
     def setUp(self):
-        self.portal = self.layer['portal']
+        self.portal = self.layer["portal"]
         gsm = getGlobalSiteManager()
         if self.theme_layer is not None:
             self._skin_name = self.portal.portal_skins.getDefaultSkin()
-            self._old_theme_layer = gsm.queryUtility(IBrowserSkinType,
-                                                     name=self._skin_name)
-            gsm.registerUtility(self.theme_layer,
-                                IBrowserSkinType,
-                                self._skin_name)
+            self._old_theme_layer = gsm.queryUtility(
+                IBrowserSkinType, name=self._skin_name
+            )
+            gsm.registerUtility(self.theme_layer, IBrowserSkinType, self._skin_name)
 
     def _get_request_interfaces(self):
-        request = self.layer['request']
+        request = self.layer["request"]
         setDefaultSkin(request)
         orig_iro = list(directlyProvidedBy(request).__iro__)
         directlyProvides(request, [self.additive_layer] + orig_iro)
@@ -79,13 +77,12 @@ class LayerPrecedenceTestCase(unittest.TestCase):
     def beforeTearDown(self):
         gsm = getGlobalSiteManager()
         if self.theme_layer is not None:
-            res = gsm.unregisterUtility(provided=IBrowserSkinType,
-                                        name=self._skin_name)
+            res = gsm.unregisterUtility(provided=IBrowserSkinType, name=self._skin_name)
             self.assertTrue(res)
             if self._old_theme_layer is not None:
-                gsm.registerUtility(self._old_theme_layer,
-                                    IBrowserSkinType,
-                                    self._skin_name)
+                gsm.registerUtility(
+                    self._old_theme_layer, IBrowserSkinType, self._skin_name
+                )
 
 
 class TestPrecedenceWithAdditiveLayerExtendingInterface(LayerPrecedenceTestCase):
@@ -106,6 +103,7 @@ class TestPrecedenceWithNoThemeLayer(LayerPrecedenceTestCase):
 def test_suite():
     from unittest import makeSuite
     from unittest import TestSuite
+
     suite = TestSuite()
     suite.addTest(makeSuite(TestPrecedenceWithAdditiveLayerExtendingInterface))
     suite.addTest(makeSuite(TestPrecedenceWithAdditiveLayerExtendingDefault))

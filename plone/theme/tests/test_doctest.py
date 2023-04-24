@@ -7,7 +7,14 @@ import unittest
 
 def test_suite():
     return unittest.TestSuite(
-        [layered(doctest.DocFileSuite('README.rst', package='plone.theme',
-         optionflags=doctest.ELLIPSIS | doctest.REPORT_ONLY_FIRST_FAILURE),
-         layer=PLONETHEME_FUNCTIONAL_TESTING)]
+        [
+            layered(
+                doctest.DocFileSuite(
+                    "README.rst",
+                    package="plone.theme",
+                    optionflags=doctest.ELLIPSIS | doctest.REPORT_ONLY_FIRST_FAILURE,
+                ),
+                layer=PLONETHEME_FUNCTIONAL_TESTING,
+            )
+        ]
     )
