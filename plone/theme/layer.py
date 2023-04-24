@@ -1,9 +1,11 @@
 from plone.theme.interfaces import IDefaultPloneLayer
 from Products.CMFCore.utils import getToolByName
 from zope.component import queryUtility
-from zope.interface import directlyProvides, directlyProvidedBy
+from zope.interface import directlyProvidedBy
+from zope.interface import directlyProvides
 from zope.publisher.interfaces.browser import IBrowserSkinType
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+
 
 default_layers = [
     IDefaultPloneLayer,

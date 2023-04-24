@@ -3,13 +3,14 @@
 
 from plone.theme.interfaces import IDefaultPloneLayer
 from plone.theme.testing import PLONETHEME_INTEGRATION_TESTING
-
-from zope.event import notify
-from zope.interface import Interface, directlyProvides, directlyProvidedBy
 from zope.component import getGlobalSiteManager
+from zope.event import notify
+from zope.interface import directlyProvidedBy
+from zope.interface import directlyProvides
+from zope.interface import Interface
+from zope.publisher.browser import setDefaultSkin
 from zope.publisher.interfaces.browser import IBrowserSkinType
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from zope.publisher.browser import setDefaultSkin
 from zope.traversing.interfaces import BeforeTraverseEvent
 
 import unittest
@@ -103,7 +104,8 @@ class TestPrecedenceWithNoThemeLayer(LayerPrecedenceTestCase):
 
 
 def test_suite():
-    from unittest import TestSuite, makeSuite
+    from unittest import makeSuite
+    from unittest import TestSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestPrecedenceWithAdditiveLayerExtendingInterface))
     suite.addTest(makeSuite(TestPrecedenceWithAdditiveLayerExtendingDefault))

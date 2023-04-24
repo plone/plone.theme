@@ -1,9 +1,8 @@
-import unittest
-import doctest
-
+from plone.testing import layered
 from plone.theme.testing import PLONETHEME_FUNCTIONAL_TESTING
 
-from plone.testing import layered
+import doctest
+import unittest
 
 
 def test_suite():
