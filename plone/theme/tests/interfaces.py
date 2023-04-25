@@ -6,5 +6,4 @@ from plone.theme.interfaces import IDefaultPloneLayer
 
 
 class IMyTheme(IDefaultPloneLayer):
-    """Marker interface used in the tests
-    """
+    """Marker interface used in the tests"""
