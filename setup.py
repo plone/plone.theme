@@ -1,30 +1,24 @@
+from pathlib import Path
 from setuptools import find_packages
 from setuptools import setup
-
-import os
-
-
-def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 
 version = "4.0.1.dev0"
 
 long_description = (
-    read("README.rst")
-    + "\n"
-    + read("plone", "theme", "README.rst")
-    + "\n"
-    + read("CHANGES.rst")
-    + "\n"
+    f"{Path('README.rst').read_text()}\n"
+    f"{(Path('plone') / 'theme' / 'README.rst').read_text()}\n"
+    f"{Path('CHANGES.rst').read_text()}"
 )
-
 
 setup(
     name="plone.theme",
     version=version,
     description="Tools for managing themes in CMF and Plone sites",
     long_description=long_description,
+    long_description_content_type="text/x-rst",
+    # Get more strings from
+    # https://pypi.org/classifiers/
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
