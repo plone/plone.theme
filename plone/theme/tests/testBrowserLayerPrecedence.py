@@ -101,11 +101,18 @@ class TestPrecedenceWithNoThemeLayer(LayerPrecedenceTestCase):
 
 
 def test_suite():
-    from unittest import makeSuite
-    from unittest import TestSuite
+    import unittest
 
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestPrecedenceWithAdditiveLayerExtendingInterface))
-    suite.addTest(makeSuite(TestPrecedenceWithAdditiveLayerExtendingDefault))
-    suite.addTest(makeSuite(TestPrecedenceWithNoThemeLayer))
-    return suite
+    return unittest.TestSuite(
+        (
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                TestPrecedenceWithAdditiveLayerExtendingInterface
+            ),
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                TestPrecedenceWithAdditiveLayerExtendingDefault
+            ),
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                TestPrecedenceWithNoThemeLayer
+            ),
+        )
+    )
