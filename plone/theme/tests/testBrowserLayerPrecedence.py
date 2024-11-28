@@ -103,8 +103,16 @@ class TestPrecedenceWithNoThemeLayer(LayerPrecedenceTestCase):
 def test_suite():
     import unittest
 
-    return unittest.TestSuite((
-        unittest.defaultTestLoader.loadTestsFromTestCase(TestPrecedenceWithAdditiveLayerExtendingInterface),
-        unittest.defaultTestLoader.loadTestsFromTestCase(TestPrecedenceWithAdditiveLayerExtendingDefault),
-        unittest.defaultTestLoader.loadTestsFromTestCase(TestPrecedenceWithNoThemeLayer),
-    ))
+    return unittest.TestSuite(
+        (
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                TestPrecedenceWithAdditiveLayerExtendingInterface
+            ),
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                TestPrecedenceWithAdditiveLayerExtendingDefault
+            ),
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                TestPrecedenceWithNoThemeLayer
+            ),
+        )
+    )
